@@ -1,0 +1,23 @@
+!!!
+%html
+%head
+	%title Blog
+	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+%body
+	%header
+		%nav
+			- if author_signed_in?
+				= link_to current_author.name, edit_author_registration_path
+				= link_to "Add New Article", new_article_path
+			-else
+				= link_to "Sing In", new_author_session_path
+				= link_to "Sing Up", new_author_registration_path
+
+	%p.notice= notice
+	%p.alert= alert
+
+	= yield
+
+

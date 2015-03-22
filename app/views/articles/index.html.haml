@@ -1,0 +1,11 @@
+- @articles.each do |article|
+	%h2= link_to article.title, article
+	%p= article.content
+	%p= article.bannerimage
+	%p.username
+		Shared by
+		= article.author.name
+		</br>about
+		= time_ago_in_words(article.created_at)
+		ago
+

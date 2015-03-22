@@ -1,0 +1,14 @@
+%h1= @article.title
+%p= @article.content
+%p= @article.bannerimage
+%p.username
+	Shared by
+	= @article.author.name
+	</br>about
+	= time_ago_in_words(@article.created_at)
+	ago 
+
+= link_to "Edit", edit_article_path(@article)
+= link_to "Destroy", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }
+
+= link_to "Home", root_path
